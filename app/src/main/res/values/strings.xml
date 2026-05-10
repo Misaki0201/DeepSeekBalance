@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="app_name">DeepSeek余额</string>
+    <string name="api_key_label">API Key</string>
+    <string name="api_key_hint">输入你的 DeepSeek API Key</string>
+    <string name="api_key_save">保存</string>
+    <string name="balance_title">账户余额</string>
+    <string name="total_balance">总余额</string>
+    <string name="granted_balance">赠送余额</string>
+    <string name="topped_up_balance">充值余额</string>
+    <string name="account_status">账户状态</string>
+    <string name="available">可用</string>
+    <string name="unavailable">不可用</string>
+    <string name="last_updated">最后更新</string>
+    <string name="refresh">刷新</string>
+    <string name="loading">加载中…</string>
+    <string name="error_fetch">获取余额失败</string>
+    <string name="error_invalid_key">API Key 无效</string>
+    <string name="settings_title">设置</string>
+    <string name="change_api_key">更换 API Key</string>
+    <string name="refresh_interval">刷新间隔</string>
+    <string name="every_minute">每分钟</string>
+    <string name="every_5_minutes">每5分钟</string>
+    <string name="every_15_minutes">每15分钟</string>
+    <string name="every_30_minutes">每30分钟</string>
+    <string name="never">从不</string>
+    <string name="currency_cny">¥</string>
+    <string name="yuan">元</string>
+    <string name="input_api_key_hint">sk-xxxxxxxxxxxxxxxxxxxxxxxxxxxxxxxx</string>
+    <string name="api_key_instructions">请输入你的 DeepSeek API Key 来查看账户余额。你的 Key 仅保存在本机设备上，不会上传到任何第三方服务器。</string>
+    <string name="low_balance_title">余额不足提醒</string>
+    <string name="low_balance_content">你的 DeepSeek 余额仅剩 ¥%s</string>
+    <string name="about">关于</string>
+    <string name="version">版本 %s</string>
+    <string name="built_by">Built by Claude · 开源项目</string>
+</resources>
