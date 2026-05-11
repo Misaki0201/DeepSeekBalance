@@ -36,6 +36,9 @@ class MainActivity : ComponentActivity() {
                     val balanceState by viewModel.balanceState.collectAsState()
                     val isLoading by viewModel.isLoading.collectAsState()
                     val lastBalance by viewModel.lastBalance.collectAsState()
+                    val usageState by viewModel.usageState.collectAsState()
+                    val isUsageLoading by viewModel.isUsageLoading.collectAsState()
+                    val lastUsage by viewModel.lastUsage.collectAsState()
 
                     // Animated transition between screens
                     AnimatedContent(
@@ -56,7 +59,11 @@ class MainActivity : ComponentActivity() {
                                 balanceState = balanceState,
                                 isLoading = isLoading,
                                 lastBalance = lastBalance,
-                                onRefresh = { viewModel.refreshBalance() },
+                                usageState = usageState,
+                                isUsageLoading = isUsageLoading,
+                                lastUsage = lastUsage,
+                                onRefresh = { viewModel.refreshAll() },
+                                onRefreshUsage = { viewModel.fetchUsage() },
                                 onLogout = { viewModel.clearApiKey() }
                             )
                         } else {

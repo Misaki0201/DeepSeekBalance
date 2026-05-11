@@ -25,6 +25,8 @@ import androidx.compose.ui.text.style.TextAlign
 import androidx.compose.ui.unit.dp
 import com.deepseek.balance.data.model.BalanceDisplay
 import com.deepseek.balance.data.model.BalanceUiState
+import com.deepseek.balance.data.model.UsageStats
+import com.deepseek.balance.data.model.UsageUiState
 import java.text.SimpleDateFormat
 import java.util.*
 
@@ -34,7 +36,11 @@ fun DashboardScreen(
     balanceState: BalanceUiState,
     isLoading: Boolean,
     lastBalance: BalanceDisplay?,
+    usageState: UsageUiState,
+    isUsageLoading: Boolean,
+    lastUsage: UsageStats?,
     onRefresh: () -> Unit,
+    onRefreshUsage: () -> Unit,
     onLogout: () -> Unit
 ) {
     val scrollState = rememberScrollState()
@@ -143,6 +149,20 @@ fun DashboardScreen(
 
                     // Detail cards
                     BalanceDetailCards(balance = state.balance)
+
+                    // Divider
+                    HorizontalDivider(
+                        color = MaterialTheme.colorScheme.outline.copy(alpha = 0.3f),
+                        modifier = Modifier.padding(vertical = 4.dp)
+                    )
+
+                    // Usage statistics section
+                    UsageStatsSection(
+                        usageState = usageState,
+                        isLoading = isUsageLoading,
+                        lastUsage = lastUsage,
+                        onRefresh = onRefreshUsage
+                    )
 
                     // Info card
                     LastUpdatedCard(lastUpdated = state.balance.lastUpdated)
