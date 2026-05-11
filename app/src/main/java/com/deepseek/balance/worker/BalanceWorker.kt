@@ -18,6 +18,7 @@ import com.deepseek.balance.data.local.SettingsDataStore
 import com.deepseek.balance.data.model.BalanceDisplay
 import com.deepseek.balance.data.model.BalanceResponse
 import kotlinx.coroutines.Dispatchers
+import kotlinx.coroutines.flow.firstOrNull
 import kotlinx.coroutines.withContext
 import java.util.concurrent.TimeUnit
 
@@ -80,16 +81,8 @@ class BalanceWorker(
         try {
             val settingsDataStore = SettingsDataStore(applicationContext)
 
-            // Collect the current API key
-            var apiKey: String? = null
-            val job = kotlinx.coroutines.launch {
-                settingsDataStore.apiKeyFlow.collect { key ->
-                    apiKey = key
-                }
-            }
-            // Wait for the value
-            kotlinx.coroutines.delay(500)
-            job.cancel()
+            // Get the current API key from DataStore
+            val apiKey = settingsDataStore.apiKeyFlow.firstOrNull()
 
             if (apiKey.isNullOrBlank()) {
                 return@withContext Result.success()

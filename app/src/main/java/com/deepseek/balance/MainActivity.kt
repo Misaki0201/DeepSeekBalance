@@ -15,6 +15,7 @@ import com.deepseek.balance.ui.screens.ApiKeyScreen
 import com.deepseek.balance.ui.screens.DashboardScreen
 import com.deepseek.balance.ui.theme.DeepSeekBalanceTheme
 import com.deepseek.balance.viewmodel.BalanceViewModel
+import com.deepseek.balance.worker.BalanceWorker
 
 class MainActivity : ComponentActivity() {
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -22,10 +23,10 @@ class MainActivity : ComponentActivity() {
         enableEdgeToEdge()
 
         // Initialize notification channel
-        worker.BalanceWorker.createNotificationChannel(this)
+        BalanceWorker.createNotificationChannel(this)
 
         // Schedule background check every 30 minutes
-        worker.BalanceWorker.schedule(this, 30)
+        BalanceWorker.schedule(this, 30)
 
         setContent {
             DeepSeekBalanceTheme {
