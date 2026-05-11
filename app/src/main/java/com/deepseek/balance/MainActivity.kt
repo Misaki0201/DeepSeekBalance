@@ -63,7 +63,7 @@ class MainActivity : ComponentActivity() {
                                 isUsageLoading = isUsageLoading,
                                 lastUsage = lastUsage,
                                 onRefresh = { viewModel.refreshAll() },
-                                onRefreshUsage = { viewModel.fetchUsage() },
+                                onOpenDashboard = { viewModel.openUsageDashboard(this@MainActivity) },
                                 onLogout = { viewModel.clearApiKey() }
                             )
                         } else {

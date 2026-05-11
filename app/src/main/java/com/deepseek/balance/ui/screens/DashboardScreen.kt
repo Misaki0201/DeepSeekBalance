@@ -40,7 +40,7 @@ fun DashboardScreen(
     isUsageLoading: Boolean,
     lastUsage: UsageStats?,
     onRefresh: () -> Unit,
-    onRefreshUsage: () -> Unit,
+    onOpenDashboard: () -> Unit,
     onLogout: () -> Unit
 ) {
     val scrollState = rememberScrollState()
@@ -161,7 +161,8 @@ fun DashboardScreen(
                         usageState = usageState,
                         isLoading = isUsageLoading,
                         lastUsage = lastUsage,
-                        onRefresh = onRefreshUsage
+                        onRefresh = onRefresh,
+                        onOpenDashboard = onOpenDashboard
                     )
 
                     // Info card

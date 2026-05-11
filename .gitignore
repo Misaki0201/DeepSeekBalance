@@ -19,3 +19,4 @@ output/
 server/.env
 server/__pycache__/
 server/*.pyc
+server/usage_data.json
