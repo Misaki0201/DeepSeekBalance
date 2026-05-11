@@ -215,7 +215,7 @@ private fun UsageFromServer(stats: UsageStats) {
             verticalAlignment = Alignment.CenterVertically
         ) {
             Icon(
-                imageVector = Icons.Default.Server,
+                imageVector = Icons.Default.Dns,
                 contentDescription = null,
                 modifier = Modifier.size(14.dp),
                 tint = MaterialTheme.colorScheme.onPrimaryContainer
@@ -329,9 +329,9 @@ private fun UsageFromEstimate(stats: UsageStats, trend: BalanceTrend) {
     }
 
     // Link to platform
+    val context = LocalContext.current
     Button(
         onClick = {
-            val context = androidx.compose.ui.platform.LocalContext.current
             val intent = Intent(Intent.ACTION_VIEW, Uri.parse("https://platform.deepseek.com/usage"))
             intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK)
             context.startActivity(intent)
